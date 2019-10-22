@@ -1,6 +1,7 @@
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "tiempo.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -14,6 +15,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
 private slots:
     void on_boton1_clicked();
 
@@ -27,8 +29,11 @@ private slots:
 
     void on_jugada_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
+
 
 };
 #endif // MAINWINDOW_H

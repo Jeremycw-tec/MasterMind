@@ -13,6 +13,7 @@
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -111,6 +112,22 @@ public:
     QPushButton *ver2_1;
     QPushButton *ver4_1;
     QPushButton *boton1_1;
+    QLabel *horas;
+    QLabel *minutos;
+    QLabel *segundos;
+    QLabel *chor;
+    QLabel *cmin;
+    QLabel *cseg;
+    QLabel *jug1;
+    QLabel *jug2;
+    QLabel *jug3;
+    QLabel *jug4;
+    QLabel *jug5;
+    QLabel *jug6;
+    QLabel *jug7;
+    QLabel *jug8;
+    QLabel *label_2;
+    QLineEdit *lineEdit;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -328,7 +345,7 @@ public:
         pushButton_5->setGeometry(QRect(550, 580, 71, 31));
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(340, 630, 47, 13));
+        label->setGeometry(QRect(270, 630, 47, 13));
         ver1 = new QPushButton(centralwidget);
         ver1->setObjectName(QString::fromUtf8("ver1"));
         ver1->setEnabled(true);
@@ -1034,6 +1051,55 @@ public:
         boton1_1->setIcon(icon);
         boton1_1->setIconSize(QSize(40, 40));
         boton1_1->setFlat(false);
+        horas = new QLabel(centralwidget);
+        horas->setObjectName(QString::fromUtf8("horas"));
+        horas->setGeometry(QRect(40, 630, 47, 13));
+        minutos = new QLabel(centralwidget);
+        minutos->setObjectName(QString::fromUtf8("minutos"));
+        minutos->setGeometry(QRect(110, 630, 47, 13));
+        segundos = new QLabel(centralwidget);
+        segundos->setObjectName(QString::fromUtf8("segundos"));
+        segundos->setGeometry(QRect(180, 630, 47, 13));
+        chor = new QLabel(centralwidget);
+        chor->setObjectName(QString::fromUtf8("chor"));
+        chor->setGeometry(QRect(40, 650, 47, 13));
+        cmin = new QLabel(centralwidget);
+        cmin->setObjectName(QString::fromUtf8("cmin"));
+        cmin->setGeometry(QRect(110, 650, 47, 13));
+        cseg = new QLabel(centralwidget);
+        cseg->setObjectName(QString::fromUtf8("cseg"));
+        cseg->setGeometry(QRect(180, 650, 47, 13));
+        jug1 = new QLabel(centralwidget);
+        jug1->setObjectName(QString::fromUtf8("jug1"));
+        jug1->setEnabled(true);
+        jug1->setGeometry(QRect(80, 520, 47, 13));
+        jug2 = new QLabel(centralwidget);
+        jug2->setObjectName(QString::fromUtf8("jug2"));
+        jug2->setGeometry(QRect(80, 470, 47, 13));
+        jug3 = new QLabel(centralwidget);
+        jug3->setObjectName(QString::fromUtf8("jug3"));
+        jug3->setGeometry(QRect(80, 420, 47, 13));
+        jug4 = new QLabel(centralwidget);
+        jug4->setObjectName(QString::fromUtf8("jug4"));
+        jug4->setGeometry(QRect(80, 370, 47, 13));
+        jug5 = new QLabel(centralwidget);
+        jug5->setObjectName(QString::fromUtf8("jug5"));
+        jug5->setGeometry(QRect(80, 320, 47, 13));
+        jug6 = new QLabel(centralwidget);
+        jug6->setObjectName(QString::fromUtf8("jug6"));
+        jug6->setGeometry(QRect(80, 270, 47, 13));
+        jug7 = new QLabel(centralwidget);
+        jug7->setObjectName(QString::fromUtf8("jug7"));
+        jug7->setGeometry(QRect(80, 220, 47, 13));
+        jug8 = new QLabel(centralwidget);
+        jug8->setObjectName(QString::fromUtf8("jug8"));
+        jug8->setGeometry(QRect(80, 170, 47, 13));
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(40, 540, 61, 20));
+        lineEdit = new QLineEdit(centralwidget);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit->setGeometry(QRect(270, 650, 171, 20));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -1137,6 +1203,22 @@ public:
         ver2_1->setText(QString());
         ver4_1->setText(QString());
         boton1_1->setText(QString());
+        horas->setText(QCoreApplication::translate("MainWindow", "Horas:", nullptr));
+        minutos->setText(QCoreApplication::translate("MainWindow", "Minutos:", nullptr));
+        segundos->setText(QCoreApplication::translate("MainWindow", "Segundos:", nullptr));
+        chor->setText(QString());
+        cmin->setText(QString());
+        cseg->setText(QString());
+        jug1->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
+        jug2->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
+        jug3->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
+        jug4->setText(QCoreApplication::translate("MainWindow", "4", nullptr));
+        jug5->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
+        jug6->setText(QCoreApplication::translate("MainWindow", "6", nullptr));
+        jug7->setText(QCoreApplication::translate("MainWindow", "7", nullptr));
+        jug8->setText(QCoreApplication::translate("MainWindow", "8", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "N\302\260 Jugadas", nullptr));
+        lineEdit->setText(QCoreApplication::translate("MainWindow", "Jugador", nullptr));
     } // retranslateUi
 
 };
