@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/">
+        <file>amarillo.png</file>
+        <file>azul.png</file>
+        <file>morado.png</file>
+        <file>naranja.png</file>
+        <file>rojo.png</file>
+        <file>verde.png</file>
+        <file>1.png</file>
+        <file>2.png</file>
+        <file>3.png</file>
+        <file>4.png</file>
+        <file>5.png</file>
+        <file>6.png</file>
+        <file>A.png</file>
+        <file>B.png</file>
+        <file>C.png</file>
+        <file>D.png</file>
+        <file>E.png</file>
+        <file>F.png</file>
+        <file>i.png</file>
+        <file>k.png</file>
+        <file>s.png</file>
+        <file>r.png</file>
+        <file>t.png</file>
+        <file>y.png</file>
+    </qresource>
+</RCC>
