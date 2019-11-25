@@ -1,0 +1,44 @@
+<RCC>
+    <qresource prefix="/">
+        <file>amarillo.png</file>
+        <file>configuracion/configuracion.txt</file>
+        <file>azul.png</file>
+        <file>blanco.png</file>
+        <file>morado.png</file>
+        <file>naranja.png</file>
+        <file>negro.png</file>
+        <file>rojo.png</file>
+        <file>verde.png</file>
+        <file>1.png</file>
+        <file>2.png</file>
+        <file>3.png</file>
+        <file>4.png</file>
+        <file>5.png</file>
+        <file>6.png</file>
+        <file>A.png</file>
+        <file>B.png</file>
+        <file>C.png</file>
+        <file>D.png</file>
+        <file>E.png</file>
+        <file>F.png</file>
+        <file>gris.png</file>
+        <file>s.png</file>
+        <file>k.png</file>
+        <file>i.png</file>
+        <file>r.png</file>
+        <file>y.png</file>
+        <file>t.png</file>
+        <file>jugadaloseblack.png</file>
+        <file>jugadalosered.png</file>
+        <file>juegoloseblack.png</file>
+        <file>juegolosered.png</file>
+        <file>winblack.png</file>
+        <file>wingreen.png</file>
+        <file>guardar/verificacion.txt</file>
+        <file>guardar/guardado.txt</file>
+        <file>guardar/facil.txt</file>
+        <file>guardar/medio.txt</file>
+        <file>guardar/dificil.txt</file>
+        <file>aplausos.mp3</file>
+    </qresource>
+</RCC>
