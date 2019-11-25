@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>MasterMind2/guardar/dificil.txt</file>
+        <file>MasterMind2/guardar/facil.txt</file>
+        <file>MasterMind2/guardar/medio.txt</file>
+    </qresource>
+</RCC>
