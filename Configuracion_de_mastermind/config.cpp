@@ -1,5 +1,5 @@
 #include "config.h"
-config::config()
+config::config()//Establece la configuracion por defecto
 {
     dificultad=1;
     reloj=1;
@@ -7,7 +7,7 @@ config::config()
     elemento=1;
 }
 
-config::config(int d,int r, int r2, int e){
+config::config(int d,int r, int r2, int e){//Cambio de los 4 datos
     dificultad=d;
     reloj=r;
     repeticion=r2;
@@ -35,7 +35,7 @@ void config::c_elemento(int e){
     elemento=e;
 }
 
-//---------------------------------------------------
+//Obtiene datos ---------------------------------------------------
 int config::g_dificultad() const{
     return dificultad;
 }

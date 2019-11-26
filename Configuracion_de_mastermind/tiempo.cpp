@@ -5,7 +5,7 @@ Tiempo::Tiempo(){
     m=0;
     s=0;
 }
-Tiempo::Tiempo(int seg) {
+Tiempo::Tiempo(int seg) {//Recibe segundos y los transforma en el formato hh:mm:ss
     int hor=0;
     int min=0;
 
@@ -81,7 +81,7 @@ void Tiempo::temporarizador() {
     m = min;
 }
 
-int Tiempo::tiempotot() {
+int Tiempo::tiempotot() {//Retorna el tiempo total en segundos
     int hor = h * 3600;
     int min = m * 60;
     int seg = s;
