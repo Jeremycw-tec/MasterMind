@@ -18,9 +18,8 @@ public:
 
 
 public slots:
-    void funcionActivacionTimer();//cronometro
-    void funcionActivacionTimer2();//temporarizador
-    void funcionActivacionTimer3();
+
+    void funcionActivacionTimer();
 
 private slots:
     void on_boton1_clicked();

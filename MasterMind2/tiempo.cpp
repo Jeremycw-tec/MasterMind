@@ -46,6 +46,7 @@ Tiempo::~Tiempo() {
 
 }
 
+//Cambio de datos
 void Tiempo::ch(int hor) {
     h = hor;
 }
@@ -57,6 +58,7 @@ void Tiempo::cs(int seg) {
     s = seg;
 }
 
+//Retorna los datos
 int Tiempo::mh()const  {
     return h;
 }
@@ -70,7 +72,7 @@ int Tiempo::ms()const {
 }
 
 
-void Tiempo::cronometro() {
+void Tiempo::cronometro() {//-1 segundo
     int hor = h * 3600;
     int min = m * 60;
     int seg = s;
@@ -96,7 +98,7 @@ void Tiempo::cronometro() {
     m = min;
 }
 
-int Tiempo::tiempotot() {
+int Tiempo::tiempotot() {//retorna el tiempo total en segundos
     int hor = h * 3600;
     int min = m * 60;
     int seg = s;
@@ -104,7 +106,7 @@ int Tiempo::tiempotot() {
     return temtot;
 }
 
-void Tiempo::ctiempo(int seg){
+void Tiempo::ctiempo(int seg){//Recibe tiempo en segundos y determina h,m,s
     int hor=0;
     int min=0;
 

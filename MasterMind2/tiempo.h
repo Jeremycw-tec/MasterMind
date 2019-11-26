@@ -19,8 +19,8 @@ public:
     int mm()const;//mostrar minutos
     int ms()const;//mostrar segundos
     int tiempotot();
-    void cronometro();
-    void temporarizador();
+    void cronometro();//-1 segundo
+    void temporarizador();//+1 segundo
 
 };
 

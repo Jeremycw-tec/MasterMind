@@ -119,115 +119,6 @@ void MainWindow::funcionActivacionTimer(){
     if(r.tiempotot()==0 || win==1){//si el tiempo se acaba o el jugador gana
 
         //Perdida con cronometro por juego---------------------------------------
-        if((configuracion.g_reloj()==4) & (win==0)){
-            if(cambio==1){
-                ui->winlose->setIcon(QIcon(":/juegoloseblack.png"));
-                cambio=2;
-                return;
-            }
-            if (cambio==2){
-                ui->winlose->setIcon(QIcon(":/juegolosered.png"));
-                cambio=1;
-                return;
-            }
-        }
-        //Perdida con cronometro por jugada-----------------------------------
-        if ((configuracion.g_reloj()==3) & (win==0)){
-            if(cambio==1){
-                ui->winlose->setIcon(QIcon(":/jugadaloseblack.png"));
-                cambio=2;
-                return;
-            }
-            if (cambio==2){
-                ui->winlose->setIcon(QIcon(":/jugadalosered.png"));
-                cambio=1;
-                return;
-            }
-        }
-
-        //SI HA GANADO EL JUEGO-----------------------------------------
-        if (cambio==1){
-            ui->winlose->setIcon(QIcon(":/winblack.png"));
-            cambio=2;
-            return;
-        }
-        if (cambio==2){
-            ui->winlose->setIcon(QIcon(":/wingreen.png"));
-            cambio=1;
-            return;
-        }
-
-    }
-
-    //si termina el juego
-    if ((configuracion.g_dificultad()==1) & (filas==8)){
-        return;
-    }
-    if ((configuracion.g_dificultad()==2) & (filas==7)){
-        return;
-    }
-    if ((configuracion.g_dificultad()==3) & (filas==6)){
-        return;
-    }
-
-    //--------------------------------------------------------
-    if (configuracion.g_reloj()==1){
-        r.temporarizador();
-    }
-    if (configuracion.g_reloj()==3 || configuracion.g_reloj()==4 ){
-        r.cronometro();
-    }
-
-    ui->hor->display(r.mh());
-    ui->min->display(r.mm());
-    ui->seg->display(r.ms());
-
-    r3.temporarizador();//tiempo por jugada
-}
-
-void MainWindow::funcionActivacionTimer2(){
-    if (cargando==1){
-        return;
-    }
-    if(win==1){//SI EL JUGADOR GANA
-
-        if (cambio==1){
-            ui->winlose->setIcon(QIcon(":/winblack.png"));
-            cambio=2;
-            return;
-        }
-        if (cambio==2){
-            ui->winlose->setIcon(QIcon(":/wingreen.png"));
-            cambio=1;
-            return;
-        }
-    }
-    //si termina el juego----------------------------------
-    if ((configuracion.g_dificultad()==1) & (filas==8)){
-        return;
-    }
-    if ((configuracion.g_dificultad()==2) & (filas==7)){
-        return;
-    }
-    if ((configuracion.g_dificultad()==3) & (filas==6)){
-        return;
-    }
-    //-----------------------------------------------------
-    r.temporarizador();
-    r3.temporarizador();
-    ui->hor->display(r.mh());
-    ui->min->display(r.mm());
-    ui->seg->display(r.ms());
-
-}
-
-void MainWindow::funcionActivacionTimer3(){
-    if (cargando==1){
-        return;
-    }
-    if(r.tiempotot()==0 || win==1){//si el tiempo se acaba o el jugador gana
-
-        //Perdida con cronometro por juego---------------------------------------
         if((configuracion.g_reloj()==4) && (win==0)){
             ui->guardar->setEnabled(false);
             ui->cargar->setEnabled(false);
@@ -347,7 +238,6 @@ void MainWindow::funcionActivacionTimer3(){
 
     //-----------------------------------------------------
     if (configuracion.g_reloj()==1){
-        qDebug()<<"entro"<<endl;
         r.temporarizador();
         r3.temporarizador();
         ui->hor->display(r.mh());
@@ -366,6 +256,7 @@ void MainWindow::funcionActivacionTimer3(){
     }
 
 }
+
 //Funciones--------------------------------------------------------------------------------
 void datoaleatorio(int com[4]){
     srand(time(NULL));
@@ -721,27 +612,11 @@ MainWindow::MainWindow(QWidget *parent)
         ui->seg->display(r2.ms());
     }
 
-    //Activacion de los relojes ------------------------------------------------------------------------------
-    //if (configuracion.g_reloj()==1){//si es temporarizador
+    //Activacion del reloj ------------------------------------------------------------------------------
     QTimer *cronometro=new QTimer(this);
-    connect(cronometro, SIGNAL(timeout()), this, SLOT(funcionActivacionTimer3()));
+    connect(cronometro, SIGNAL(timeout()), this, SLOT(funcionActivacionTimer()));
     cronometro->start(1000);
-    //}
-    /*
-    if (configuracion.g_reloj()==2){//si no hay tiempo
-        QTimer *cronometro=new QTimer(this);
-        connect(cronometro, SIGNAL(timeout()), this, SLOT(funcionActivacionTimer3()));
-        cronometro->start(1000);
 
-    }
-
-    if(configuracion.g_reloj()==3 || configuracion.g_reloj()==4){//si es cronometro por jugada || juego
-        QTimer *cronometro=new QTimer(this);
-        connect(cronometro, SIGNAL(timeout()), this, SLOT(funcionActivacionTimer()));
-        cronometro->start(1000);
-
-    }
-    */
 
     //configuracion del elemento-------------------------------
     if (configuracion.g_elemento()==1){//colores
@@ -880,7 +755,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_boton1_clicked()//Cambia los datos del boton 1
 {
 
-    verif1=1;
+    verif1=1;//verificador
     if(contc1==6){
         contc1=0;
     }
@@ -906,6 +781,7 @@ void MainWindow::on_boton1_clicked()//Cambia los datos del boton 1
             ui->boton1->setIcon(QIcon(":/morado.png"));
         }
     }
+
     //si son letras--------------------------------------
     if(configuracion.g_elemento()==2){
         if (contc1==0){
@@ -927,6 +803,7 @@ void MainWindow::on_boton1_clicked()//Cambia los datos del boton 1
             ui->boton1->setIcon(QIcon(":/F.png"));
         }
     }
+
     //si son numeros--------------------------------------
     if(configuracion.g_elemento()==3){
         if (contc1==0){
@@ -948,6 +825,7 @@ void MainWindow::on_boton1_clicked()//Cambia los datos del boton 1
             ui->boton1->setIcon(QIcon(":/6.png"));
         }
     }
+
     //si son poderes oculares
     if(configuracion.g_elemento()==4){
         if (contc1==0){
@@ -971,15 +849,17 @@ void MainWindow::on_boton1_clicked()//Cambia los datos del boton 1
     }
 
     contc1++;
+    //Verifica si el boton de jugada debe estar habilitado
     if(verif1==1 && verif2==1 && verif3==1 && verif4==1){
         ui->jugada->setEnabled(true);
     }
 
+    //Agrega los datos de los botones para el deshacer jugada
     jug.push_back({contc1,contc2,contc3,contc4});
-    //qDebug()<<jug.at(0).b1<<jug.at(0).b2<<jug.at(0).b3<<jug.at(0).b4;
+
 }
 
-void MainWindow::on_boton2_clicked()
+void MainWindow::on_boton2_clicked()//Cambia los datos del boton 2
 {
     verif2=1;
     if(contc2==6){
@@ -1082,7 +962,7 @@ void MainWindow::on_boton2_clicked()
     jug.push_back({contc1,contc2,contc3,contc4});
 }
 
-void MainWindow::on_boton3_clicked()
+void MainWindow::on_boton3_clicked()//Cambia los datos del boton 3
 {
 
     verif3=1;
@@ -1181,7 +1061,7 @@ void MainWindow::on_boton3_clicked()
     jug.push_back({contc1,contc2,contc3,contc4});
 }
 
-void MainWindow::on_boton4_clicked()
+void MainWindow::on_boton4_clicked()//Cambia los datos del boton 4
 {
 
     verif4=1;
@@ -1281,10 +1161,10 @@ void MainWindow::on_boton4_clicked()
     jug.push_back({contc1,contc2,contc3,contc4});
 }
 
-void MainWindow::on_jugada_clicked()
+void MainWindow::on_jugada_clicked()//realiza la jugada y procede al calificar y a evaluar datos
 {
     ui->guardar->setEnabled(true);
-    int combinacion[4]={contc1-1,contc2-1,contc3-1,contc4-1};
+    int combinacion[4]={contc1-1,contc2-1,contc3-1,contc4-1};//arreglo para comparar los datos en la calificacion
 
     //Datos cambiados de las filas
     if (configuracion.g_elemento()==1){//colores
@@ -4632,6 +4512,7 @@ void MainWindow::on_jugada_clicked()
     //reinicio de los tiempos por jugada
     tperjug.push_back(r3);// se agrega al vector
     r3.ctiempo(0);
+
     if (configuracion.g_reloj() == 3){//si es cronometro por jugada reinicia la cuenta regresiva
         r.ch(r2.mh());
         r.cm(r2.mm());
@@ -4673,12 +4554,16 @@ void MainWindow::on_jugada_clicked()
         //tiempos por jugada
         llenarecord(winner);
 
+        //Guarda datos para los records divididos por dificultad, utiliza archivos.txt
         if (configuracion.g_reloj()==1 || configuracion.g_reloj()==3 || configuracion.g_reloj()==4){
+            //Facil
             if (configuracion.g_dificultad()==1){
 
+                //Abre el archivo
                 QFile facil(":/guardar/facil.txt");
                 vector <records> record;
 
+                //Saca los datos
                 if(facil.open(QIODevice::ReadOnly)){
                     QTextStream datos(&facil);
                     qDebug()<<"abierto"<<endl;
@@ -4748,6 +4633,7 @@ void MainWindow::on_jugada_clicked()
                     qDebug()<<record.size()<<endl;
                 }
 
+                //Si el archivo contiene 3 records
                 if (record.size()==3){
                     records obj1=record.at(0);
                     records obj2=record.at(1);
@@ -4778,6 +4664,7 @@ void MainWindow::on_jugada_clicked()
                     }
                 }
 
+                //Si el archivo contiene 2 records
                 if (record.size()==2){
                     records obj1=record.at(0);
                     records obj2=record.at(1);
@@ -4808,6 +4695,7 @@ void MainWindow::on_jugada_clicked()
 
                 }
 
+                //Si el archivo contiene 1 records
                 if (record.size()==1){
 
                     if (stringtotime(record.at(0).tj) < segundos.tiempotot()){
@@ -4824,6 +4712,7 @@ void MainWindow::on_jugada_clicked()
 
                 }
 
+                //Si el archivo contiene 0 records
                 if (record.size()==0){
                     record.push_back(winner);
                     escribirfacil(record,1);
@@ -4832,6 +4721,7 @@ void MainWindow::on_jugada_clicked()
 
             }
 
+            //Medio
             if (configuracion.g_dificultad()==2){
 
                 QFile medio(":/guardar/medio.txt");
@@ -4993,6 +4883,7 @@ void MainWindow::on_jugada_clicked()
 
             }
 
+            //Dificil
             if (configuracion.g_dificultad()==3){
                 QFile dificil(":/guardar/dificil.txt");
                 vector <records> record;
@@ -5163,6 +5054,7 @@ void MainWindow::on_jugada_clicked()
     ui->ver3->setIcon(QIcon(":/gris.png"));
     ui->ver4->setIcon(QIcon(":/gris.png"));
 
+    //Cambio de posicion
     ui->boton1->setGeometry(100,410-resty,40,40);
     ui->boton2->setGeometry(170,410-resty,40,40);
     ui->boton3->setGeometry(240,410-resty,40,40);
@@ -5257,7 +5149,7 @@ void MainWindow::on_jugada_clicked()
 
 }
 
-void MainWindow::on_iniciar_clicked()
+void MainWindow::on_iniciar_clicked()//Inicia el juego
 {
     if (configuracion.g_reloj()==1 || configuracion.g_reloj()==2 || configuracion.g_reloj()==3 || configuracion.g_reloj()==4){//si existe uso del reloj
         cargando=0;
@@ -5287,7 +5179,7 @@ void MainWindow::on_iniciar_clicked()
 
 }
 
-void MainWindow::on_deshacer_clicked()
+void MainWindow::on_deshacer_clicked()//Deshace la jugada realizada, utiliza un vector<jugadas> que maneja cada movimiento
 {
     if (jug.size()==1){//no puede eliminar su primera posicion en el vector
         contc1=0;
@@ -5299,6 +5191,7 @@ void MainWindow::on_deshacer_clicked()
 
     jug.pop_back();
 
+    //Cambio de los valores de los botones
     contc1=jug.back().b1-1;
     if (jug.back().b1==-1){
         contc1=-1;
@@ -5696,6 +5589,7 @@ void MainWindow::on_deshacer_clicked()
         }
     }
 
+    //Verifica si el boton es gris
     contc1=jug.back().b1;
     if (jug.back().b1==-1){
        contc1=0;
@@ -5720,6 +5614,7 @@ void MainWindow::on_deshacer_clicked()
        verif4=0;
     }
 
+    //Deshabilita el boton de jugada
     if(verif1==0 || verif2==0 || verif3==0 || verif4==0){
         ui->jugada->setEnabled(false);
     }
@@ -5728,9 +5623,10 @@ void MainWindow::on_deshacer_clicked()
 void MainWindow::on_terminar_clicked()//LISTA reinicia el juego
 {
 
-    QMessageBox::StandardButton reply;
+    QMessageBox::StandardButton reply;//Aparece una pequeña ventana
     reply = QMessageBox::question(this, "Aviso", "¿Desea terminar el juego actual?",QMessageBox::Yes | QMessageBox::No);
 
+    //Verifica si la opcion fue positiva
     if (reply == QMessageBox::Yes) {
         qApp->quit();
         QProcess::startDetached(qApp->arguments()[0],qApp->arguments());
@@ -5742,9 +5638,11 @@ void MainWindow::on_terminar_clicked()//LISTA reinicia el juego
 
 }
 
-void MainWindow::on_nombre_returnPressed()
+void MainWindow::on_nombre_returnPressed()//Nombre del jugador
 {
    QString texto=ui->nombre->text();
+
+   //Verifica el largo del texto recibido
    if ((texto.size()<2) || (texto.size()>30)){
        return;
    }
@@ -5755,10 +5653,11 @@ void MainWindow::on_nombre_returnPressed()
 
 }
 
-void MainWindow::on_cargar_clicked()
+void MainWindow::on_cargar_clicked()//Carga la partida guardada en una partida anterior o en la reciente
+                                   //Maneja archivos.txt
 {
-    this->setVisible(false);
-    cargando=1;
+    this->setVisible(false);//oculta la ventana
+    cargando=1;//detiene el tiempo
 
     //objetos ocultos---------------------------
     //fila 1
@@ -9427,14 +9326,15 @@ void MainWindow::on_cargar_clicked()
     this->setVisible(true);
 }
 
-void MainWindow::on_guardar_clicked()
+void MainWindow::on_guardar_clicked()//Guarda los datos de la partida
 {
     //guarda las variables
-    saved=1;
+    saved=1;//verifica si la partida fue guardada en la misma partida
     jugadasg=jugfilas;//almacena las jugadas
     calificaciong=calificacion;//almacena la calificacion
     rg = r.tiempotot();//almacena el tiempo
     r2g = r2.tiempotot();//almanena el tiempo auxiliar
+
     contc1g=contc1;
     contc2g=contc2;
     contc3g=contc3;
@@ -9629,7 +9529,7 @@ void MainWindow::on_guardar_clicked()
     guardado.close();
 }
 
-void MainWindow::on_prueba_clicked()//boton de continuar
+void MainWindow::on_prueba_clicked()//boton de continuar despues del cargado
 {
     verif1=0;
     verif2=0;
@@ -9646,6 +9546,7 @@ void MainWindow::on_prueba_clicked()//boton de continuar
     ui->deshacer->setEnabled(true);
     ui->iniciar->setEnabled(false);
 
+    //Habilitacion del boton de deshacer
     if(contc1>0){
         verif1=1;
     }
@@ -9662,16 +9563,18 @@ void MainWindow::on_prueba_clicked()//boton de continuar
         ui->jugada->setEnabled(true);
     }
 
+    //Configuracion del reloj------------------------------------------------------------------
     if (configuracion.g_reloj()==1 || configuracion.g_reloj()==3 || configuracion.g_reloj()==4){
         ui->hor->setEnabled(true);
         ui->min->setEnabled(true);
         ui->seg->setEnabled(true);
     }
-    cargando=0;
+    cargando=0;//habilita el reloj
 }
 
-void MainWindow::on_ayuda_clicked()
+void MainWindow::on_ayuda_clicked()//abre el manual del juego
 {
+    //abre el pdf
     QProcess::startDetached( "cmd /Q /C start C:/Users/Jerem/Desktop/manual.pdf" );
 
 }
